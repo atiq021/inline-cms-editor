@@ -16,10 +16,10 @@
     ],
     "scripts": {
         "post-root-package-install": [
-            "php artisan make:migration create_sbx_settings_table"
+            "@php artisan make:migration create_sbx_settings_table"
         ],
         "post-install-cmd": [
-            "php artisan make:migration create_sbx_settings_table"
+            "@php artisan make:migration create_sbx_settings_table"
         ]
     },
     "minimum-stability": "dev",

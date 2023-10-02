@@ -14,13 +14,6 @@
             "name": "Muhammad Atiq"
         }
     ],
-    "extra": {
-        "laravel": {
-            "providers": [
-                "SBX\\FrontCRM\\Providers\\CRMServiceProvider"
-            ]
-        }
-    },
     "minimum-stability": "dev",
     "require": {}
 }

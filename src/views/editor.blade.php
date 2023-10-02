@@ -166,6 +166,7 @@
                 $(element).append('<i class="fa fa-pen"></i>');
                 saveSetting(element);
             }
+            $('#editorModal').modal('hide');
         });
 
         function saveSetting(element) {
@@ -181,7 +182,6 @@
                 },
                 success: function(data){
                     alert('Updated Successfully');
-                    $('#editorModal').modal('hide');
                 }
             });
         }
@@ -203,7 +203,6 @@
                 processData: false,
                 success: function(data){
                     alert('Updated Successfully');
-                    $('#editorModal').modal('hide');
                 }
             });
         }

@@ -161,9 +161,9 @@
                 element.setAttribute('src', img);
                 saveFile(element, value.files[0]);
             }else{
-                $(element).append('<i class="fa fa-pen"></i>');
                 var value = $('#editorModal #editable-text').val();
                 element.innerText = value;
+                $(element).append('<i class="fa fa-pen"></i>');
                 saveSetting(element);
             }
         });
@@ -202,8 +202,8 @@
                 contentType: false,
                 processData: false,
                 success: function(data){
-                    keyPressed = 0;
                     alert('Updated Successfully');
+                    $('#editorModal').modal('hide');
                 }
             });
         }

@@ -1,0 +1,26 @@
+{
+    "name": "sbx/frontcrm",
+    "description": "This package allow you to edit your static pages from frontend.",
+    "autoload": {
+        "psr-4": {
+            "Sbx\\Frontcrm\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Muhammad Atiq"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SBX\\FrontCRM\\Providers\\CRMServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}

@@ -61,7 +61,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'FontAwesome';
+            font-family: 'FontAwesome' !important;
             font-size: 10px;
             font-weight: 400;
             right: -15px;

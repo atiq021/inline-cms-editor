@@ -4,7 +4,7 @@ namespace SBX\FrontCRM\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use SBX\FrontCRM\Models\Setting;
+use Sbx\Frontcrm\Models\Setting;
 
 class CRMController extends Controller
 {

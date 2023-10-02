@@ -1,6 +1,7 @@
 {
     "name": "sbx/frontcrm",
     "description": "This package allow you to edit your static pages from frontend.",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Sbx\\Frontcrm\\": "src/"

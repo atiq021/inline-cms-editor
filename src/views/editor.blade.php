@@ -108,7 +108,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.21.0/ckeditor.js" integrity="sha512-ff67djVavIxfsnP13CZtuHqf7VyX62ZAObYle+JlObWZvS4/VQkNVaFBOO6eyx2cum8WtiZ0pqyxLCQKC7bjcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     
-    CKEDITOR.replace('editable-text', {
+    var editor = CKEDITOR.replace('editable-text', {
         allowedContent: true,
     });
 
@@ -170,8 +170,8 @@
             }else{
                 // var value = $('#editorModal #editable-text').val();
                 // element.innerText = value;
-                CKEDITOR.instances['editable-text'].getData()
-                element.innerHTML = value;
+                // editor.getData()
+                element.innerHTML = editor.getData();
                 $(element).append('<i class="fa fa-pen"></i>');
                 saveSetting(element);
             }
@@ -220,7 +220,7 @@
             $('#editorModal #edit_type').val('text');
             $('#editorModal #editable-xpath').val(getPathTo(e.target.parentNode));
             $('#editorModal #editable-img').closest('.form-group').hide();
-            CKEDITOR.instances['editable-text'].setData(e.target.parentNode.innerHTML)
+            editor.setData(e.target.parentNode.innerHTML)
             // $('#editorModal #editable-text').val(e.target.parentNode.innerText);
             $('#editorModal #editable-text').closest('.form-group').show();
             $('#editorModal').modal('show');

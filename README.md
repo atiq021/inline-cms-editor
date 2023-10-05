@@ -15,7 +15,7 @@ Add `Sbx\Frontcrm\Providers\CRMServiceProvider::class` in your project `app/conf
 ## Run
 
 ```bash
-  php artisan migrate
+  php artisan migrate:refresh --path=vendor/sbx/frontcrm/src/database/migrations/2023_09_28_174935_create_sbx_settings_table.php
 ```
 
 

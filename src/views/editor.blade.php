@@ -105,7 +105,9 @@
         }
     </style>
 @endif
+<script src="https://cdn.ckeditor.com/4.23.0-lts/standard/ckeditor.js"></script>
 <script>
+    CKEDITOR.replace( 'editable-text' );
     $(document).on('click', '.sbxeditor-btn-close', function () {
         $('#editorModal').modal('hide');
     })

@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
               <label for="editable-text" class="col-form-label">Text:</label>
-              <textarea class="form-control" id="editable-text"></textarea>
+              <textarea class="form-control" name="editable-text" id="editable-text"></textarea>
             </div>
         </div>
         <div class="modal-footer">
@@ -105,9 +105,13 @@
         }
     </style>
 @endif
-<script src="https://cdn.ckeditor.com/4.23.0-lts/standard/ckeditor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.21.0/ckeditor.js" integrity="sha512-ff67djVavIxfsnP13CZtuHqf7VyX62ZAObYle+JlObWZvS4/VQkNVaFBOO6eyx2cum8WtiZ0pqyxLCQKC7bjcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    CKEDITOR.replace( 'editable-text' );
+    
+    CKEDITOR.replace('editable-text', {
+        allowedContent: true,
+    });
+
     $(document).on('click', '.sbxeditor-btn-close', function () {
         $('#editorModal').modal('hide');
     })
@@ -140,6 +144,7 @@
                     if(data[i].is_image == 1){
                         element.setAttribute('src', data[i].value);
                     }else{
+                        
                         element.innerText = data[i].value;
                     }
                 }
@@ -163,8 +168,10 @@
                 element.setAttribute('src', img);
                 saveFile(element, value.files[0]);
             }else{
-                var value = $('#editorModal #editable-text').val();
-                element.innerText = value;
+                // var value = $('#editorModal #editable-text').val();
+                // element.innerText = value;
+                CKEDITOR.instances['editable-text'].getData()
+                element.innerHTML = value;
                 $(element).append('<i class="fa fa-pen"></i>');
                 saveSetting(element);
             }
@@ -213,7 +220,8 @@
             $('#editorModal #edit_type').val('text');
             $('#editorModal #editable-xpath').val(getPathTo(e.target.parentNode));
             $('#editorModal #editable-img').closest('.form-group').hide();
-            $('#editorModal #editable-text').val(e.target.parentNode.innerText);
+            CKEDITOR.instances['editable-text'].setData(e.target.parentNode.innerHTML)
+            // $('#editorModal #editable-text').val(e.target.parentNode.innerText);
             $('#editorModal #editable-text').closest('.form-group').show();
             $('#editorModal').modal('show');
         });

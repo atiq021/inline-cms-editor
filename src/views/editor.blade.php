@@ -136,21 +136,19 @@
 
                     var xpath = data[i].key;
                     var element = getElementByXpath(xpath);
-                    console.log(element);
                     if(element == null || element == ''){
                         continue;
                     }
-                    console.log(data[i].value.indexOf("uploads/cms/"));
+
                     if(data[i].is_image == 1){
                         element.setAttribute('src', data[i].value);
                     }else{
-                        
                         element.innerText = data[i].value;
                     }
                 }
+
                 if("{{$editable}}" == true){
                     $('.sbx-inline-editor').append('<i class="fa fa-pen"></i>');
-                    $('.sbx-inline-img-editor').after('<i class="fa fa-pen sbx-img-editable"></i>')
                 }
                 $('.loading-overlay').removeClass('is-active');
             }
@@ -168,9 +166,6 @@
                 element.setAttribute('src', img);
                 saveFile(element, value.files[0]);
             }else{
-                // var value = $('#editorModal #editable-text').val();
-                // element.innerText = value;
-                // editor.getData()
                 element.innerHTML = editor.getData();
                 $(element).append('<i class="fa fa-pen"></i>');
                 saveSetting(element);
@@ -221,7 +216,6 @@
             $('#editorModal #editable-xpath').val(getPathTo(e.target.parentNode));
             $('#editorModal #editable-img').closest('.form-group').hide();
             editor.setData(e.target.parentNode.innerHTML)
-            // $('#editorModal #editable-text').val(e.target.parentNode.innerText);
             $('#editorModal #editable-text').closest('.form-group').show();
             $('#editorModal').modal('show');
         });

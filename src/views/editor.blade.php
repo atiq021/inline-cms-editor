@@ -105,24 +105,12 @@
         }
     </style>
 @endif
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.21.0/ckeditor.js" integrity="sha512-ff67djVavIxfsnP13CZtuHqf7VyX62ZAObYle+JlObWZvS4/VQkNVaFBOO6eyx2cum8WtiZ0pqyxLCQKC7bjcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.21.0/ckeditor.js" integrity="sha512-ff67djVavIxfsnP13CZtuHqf7VyX62ZAObYle+JlObWZvS4/VQkNVaFBOO6eyx2cum8WtiZ0pqyxLCQKC7bjcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     
-    // var editor = CKEDITOR.replace('editable-text', {
-    //     allowedContent: true,
-    // });
-
-    tinymce.init({
-    selector: 'textarea#editable-text',
-        plugins: [
-        'a11ychecker','advlist','advcode','advtable','autolink','checklist','export',
-        'lists','link','image','charmap','preview','anchor','searchreplace','visualblocks',
-        'powerpaste','fullscreen','formatpainter','insertdatetime','media','table','help','wordcount'
-        ],
-        toolbar: 'undo redo | a11ycheck casechange blocks | bold italic backcolor | alignleft aligncenter alignright alignjustify |' +
-        'bullist numlist checklist outdent indent | removeformat | code table help'
-    })
+    var editor = CKEDITOR.replace('editable-text', {
+        allowedContent: true,
+    });
 
     $(document).on('click', '.sbxeditor-btn-close', function () {
         $('#editorModal').modal('hide');
@@ -178,7 +166,7 @@
                 element.setAttribute('src', img);
                 saveFile(element, value.files[0]);
             }else{
-                element.innerHTML =  $('#editable-text').html(); //editor.getData();
+                element.innerHTML = editor.getData();
                 $(element).append('<i class="fa fa-pen"></i>');
                 saveSetting(element);
             }
@@ -227,8 +215,7 @@
             $('#editorModal #edit_type').val('text');
             $('#editorModal #editable-xpath').val(getPathTo(e.target.parentNode));
             $('#editorModal #editable-img').closest('.form-group').hide();
-            // editor.setData(e.target.parentNode.innerHTML)
-            $('#editable-text').html(e.target.parentNode.innerHTML);
+            editor.setData(e.target.parentNode.innerHTML)
             $('#editorModal #editable-text').closest('.form-group').show();
             $('#editorModal').modal('show');
         });
